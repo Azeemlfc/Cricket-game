@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Mania</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cricket Mania</h1>
+
+        <!-- Team Selection Screen -->
+        <div id="team-selection">
+            <h2>Select Teams</h2>
+            <label>Batting Team:</label>
+            <select id="batting-team">
+                <option value="India">India</option>
+                <option value="Australia">Australia</option>
+                <option value="England">England</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="South Africa">South Africa</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="West Indies">West Indies</option>
+                <option value="Sri Lanka">Sri Lanka</option>
+            </select>
+            <br>
+            <label>Bowling Team:</label>
+            <select id="bowling-team">
+                <option value="Australia">Australia</option>
+                <option value="India">India</option>
+                <option value="England">England</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="South Africa">South Africa</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="West Indies">West Indies</option>
+                <option value="Sri Lanka">Sri Lanka</option>
+            </select>
+            <br>
+            <label>Overs:</label>
+            <select id="overs-limit">
+                <option value="5">5 Overs</option>
+                <option value="10">10 Overs</option>
+                <option value="20">20 Overs</option>
+            </select>
+            <br>
+            <button onclick="startGame()">Start Match</button>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-area" style="display: none;">
+            <h2 id="match-title">India vs Australia</h2>
+            <p>Score: <span id="score">0/0</span> (<span id="overs">0.0</span>/<span id="max-overs">5</span>)</p>
+            <p>Current Batsman: <span id="batsman">Player 1</span> | Bowler: <span id="bowler">Player 2</span></p>
+            
+            <div class="shot-buttons">
+                <button onclick="playShot('Defend')">Defend</button>
+                <button onclick="playShot('Drive')">Drive</button>
+                <button onclick="playShot('Loft')">Loft</button>
+                <button onclick="playShot('Sweep')">Sweep</button>
+            </div>
+            
+            <p id="commentary">Let’s get started!</p>
+            <button onclick="endInnings()" id="end-innings-btn" style="display: none;">End Innings</button>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-area" style="display: none;">
+            <h2>Match Result</h2>
+            <p id="result-text"></p>
+            <button onclick="resetGame()">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Audio Files -->
+    <audio id="cheer-sound" src="cheer.mp3"></audio>
+    <audio id="wicket-sound" src="wicket.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
